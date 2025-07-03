@@ -1,0 +1,1 @@
+INSERT INTO `user_profiles` (`user_name`, `fullname`, `phonenumber`, `address`, `age`) VALUES ('user', 'user', '6969696969', 'Ioannina', 18);

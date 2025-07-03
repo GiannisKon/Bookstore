@@ -1,0 +1,51 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+	<title>User Directory</title>
+</head>
+
+<body>
+
+<div class="container">
+
+	<h3>User Info</h3>
+	<hr>
+	
+	<table class="table table-bordered table-striped">
+		<thead class="thead-dark">
+			<tr>
+				<th>Fullname</th>
+				<th>Age</th>
+				<th>Address</th>
+				<th>Phone Number</th>
+			</tr>
+		</thead>
+		
+		<tbody>
+			<tr th:each="tempUserProfile : ${userProfileDTO}">
+			
+				<td th:text="${tempUserProfile.fullName}" />	
+				<td th:text="${tempUserProfile.age}" />	
+				<td th:text="${tempUserProfile.address}" />
+				<td th:text="${tempUserProfile.phonenumber}" />				
+			</tr>
+		</tbody>		
+	</table>
+	
+	<hr> 
+		<a th:href="@{/user/dashboard}">Back to dashboard</a>
+</div>
+	
+</body>
+</html>
+
+
+
