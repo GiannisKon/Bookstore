@@ -1,0 +1,67 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+	<title>User Directory</title>
+</head>
+
+<body>
+
+<div class="container">
+
+	<h3>Recommendation Results Directory</h3>
+	<hr>
+	
+	<table class="table table-bordered table-striped">
+		<thead class="thead-dark">
+			<tr>
+				<th>Title</th>
+				<th>Author(s)</th>
+				<th>Category</th>
+				<th>Summary</th>
+				<th>Actions</th>
+			</tr>
+		</thead>
+		
+		<tbody>
+			<tr th:each="tempBook : ${bookResults}">
+			
+				<td th:text="${tempBook.title}" />	
+				<td>
+	                <!-- Iterate over the list of authors -->
+	                <ul>
+	                    <li th:each="author : ${tempBook.bookAuthors}" th:text="${author.name}" />
+	                </ul>
+            	</td>
+				<td th:text="${tempBook.bookCategory.name}" />	
+				<td th:text="${tempBook.summary}" />	
+				<td>
+					<!-- Add "Request" button/link -->			
+					<a th:href="@{/user/requestBook(bookId=${tempBook.bookId})}"
+					   class="btn btn-danger btn-sm"
+					   onclick="if (!(confirm('Are you sure you want to request this book?'))) return false">
+						Request
+					</a>
+				</td>
+				
+			</tr>
+		</tbody>		
+	</table>
+	<hr>
+		<a th:href="@{/user/dashboard}">Back to dashboard</a> 
+		
+		
+</div>
+	
+</body>
+</html>
+
+
+

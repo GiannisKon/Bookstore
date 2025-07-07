@@ -1,0 +1,1 @@
+INSERT INTO `book_categories` (id, `name`) VALUES (1, 'category');
